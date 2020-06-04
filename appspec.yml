@@ -1,10 +1,9 @@
 version: 0.0
-
 os: linux
 files:
-    # unzip the build artifact in ~/app
-    - source: /
-        destination: /home/ec2-user/app/release
+  # unzip the build artifact in ~/app
+  - source: /
+    destination: /home/ec2-user/app/release
 permissions:
   # change permissions from root to ec2-user
   - object: /home/ec2-user/app/release
@@ -15,10 +14,10 @@ hooks:
   ApplicationStart:
     # start the application
     - location: start-service.sh
-    timeout: 300
-    runas: ec2-user
+      timeout: 300
+      runas: ec2-user
   ApplicationStop:
     # stop the application
     - location: stop-service.sh
-    timeout: 300
-    runas: ec2-user
+      timeout: 300
+      runas: ec2-user
